@@ -2,24 +2,17 @@ import SwiftUI
 
 struct DataReviewView: View {
     @Binding var matchData: [Match]
+    @State private var editingMatch: Match?
+    @State private var showEditView = false
 
     var body: some View {
-                ZStack {
-                    // Fond dégradé
-                    LinearGradient(gradient: Gradient(colors: [
-                        Color(red: 77 / 255, green: 128 / 255, blue: 118 / 255),
-                        Color(red: 94 / 255, green: 151 / 255, blue: 136 / 255),
-                        Color(red: 112 / 255, green: 175 / 255, blue: 153 / 255),
-                        Color(red: 132 / 255, green: 199 / 255, blue: 170 / 255),
-                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
-                    ]), startPoint: .bottom, endPoint: .top)
-                    .edgesIgnoringSafeArea(.all)
-        
-        List {
-            ForEach(matchData) { match in
-                HStack {
+        ZStack {
+            Color(red: 1 / 255, green: 10 / 255, blue: 65 / 255)
+                .edgesIgnoringSafeArea(.all)
+
+            List {
+                ForEach(matchData) { match in
                     HStack {
-                        
                         VStack(alignment: .leading) {
                             Text(match.playerName1)
                                 .font(.headline)
@@ -35,27 +28,48 @@ struct DataReviewView: View {
                             Text(match.characterName2)
                             CharacterImage(characterName: match.characterName2)
                         }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    
-                    Button(action: {
-                        // Suppression du match
-                        if let index = matchData.firstIndex(where: { $0.id == match.id }) {
-                            matchData.remove(at: index)
+
+                        Spacer()
+
+                        Button(action: {
+                            editingMatch = match
+                            showEditView = true
+                        }) {
+                            Image(systemName: "pencil")
+                                .foregroundColor(.blue)
                         }
-                    }) {
-                        Image(systemName: "trash")
-                            .foregroundColor(.red)
+                        .padding(.trailing, 8)
+
+                        Button(action: {
+                            if let index = matchData.firstIndex(where: { $0.id == match.id }) {
+                                matchData.remove(at: index)
+                            }
+                        }) {
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                .onDelete(perform: delete)
+            }
+            .sheet(isPresented: $showEditView) {
+                if let editingMatch = editingMatch {
+                    MatchEditView(match: $editingMatch, characters: characters) { updatedMatch in
+                        if let index = matchData.firstIndex(where: { $0.id == updatedMatch.id }) {
+                            matchData[index] = updatedMatch
+                            showEditView = false
+                        }
                     }
                 }
             }
-        }
-                
-            
-        }
+
+    func delete(at offsets: IndexSet) {
+        matchData.remove(atOffsets: offsets)
     }
 }
+
+// Votre structure CharacterImage reste inchangée
+
 
 struct CharacterImage: View {
     let characterName: String

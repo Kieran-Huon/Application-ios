@@ -10,6 +10,7 @@
 		0C1739892B0BB7A7009E5891 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1739882B0BB7A7009E5891 /* DataView.swift */; };
 		0C71CE982B0CBAF300EA5192 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71CE972B0CBAF300EA5192 /* Models.swift */; };
 		0C71CE9A2B0CBD7300EA5192 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71CE992B0CBD7300EA5192 /* MainView.swift */; };
+		0CA05D1B2B0D048A00967D91 /* MatchEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */; };
 		0CBEF8792B0B8CCB00D20179 /* Kess_projetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF8782B0B8CCB00D20179 /* Kess_projetApp.swift */; };
 		0CBEF87B2B0B8CCB00D20179 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF87A2B0B8CCB00D20179 /* ContentView.swift */; };
 		0CBEF87D2B0B8CD100D20179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CBEF87C2B0B8CD100D20179 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		0C1739882B0BB7A7009E5891 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		0C71CE972B0CBAF300EA5192 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0C71CE992B0CBD7300EA5192 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEditView.swift; sourceTree = "<group>"; };
 		0CBEF8752B0B8CCB00D20179 /* Kess projet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kess projet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBEF8782B0B8CCB00D20179 /* Kess_projetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kess_projetApp.swift; sourceTree = "<group>"; };
 		0CBEF87A2B0B8CCB00D20179 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				0CBEF8782B0B8CCB00D20179 /* Kess_projetApp.swift */,
 				0C71CE992B0CBD7300EA5192 /* MainView.swift */,
+				0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */,
 				0C71CE972B0CBAF300EA5192 /* Models.swift */,
 				0C1739882B0BB7A7009E5891 /* DataView.swift */,
 				0CFC9D7B2B0BA49300BF128E /* MatchSummaryView.swift */,
@@ -271,6 +274,7 @@
 			files = (
 				0CBEF87B2B0B8CCB00D20179 /* ContentView.swift in Sources */,
 				0C71CE9A2B0CBD7300EA5192 /* MainView.swift in Sources */,
+				0CA05D1B2B0D048A00967D91 /* MatchEditView.swift in Sources */,
 				0CBEF8792B0B8CCB00D20179 /* Kess_projetApp.swift in Sources */,
 				0C1739892B0BB7A7009E5891 /* DataView.swift in Sources */,
 				0CFC9D7C2B0BA49300BF128E /* MatchSummaryView.swift in Sources */,

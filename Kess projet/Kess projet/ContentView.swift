@@ -42,20 +42,30 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     // Fond vert pour toute la vue
-                    LinearGradient(gradient: Gradient(colors: [
-                                        Color(red: 77 / 255, green: 128 / 255, blue: 118 / 255),
-                                        Color(red: 94 / 255, green: 151 / 255, blue: 136 / 255),
-                                        Color(red: 112 / 255, green: 175 / 255, blue: 153 / 255),
-                                        Color(red: 132 / 255, green: 199 / 255, blue: 170 / 255),
-                                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
-                    ]), startPoint: .top, endPoint: .bottom)
-                                    .edgesIgnoringSafeArea(.all)
+//                    LinearGradient(gradient: Gradient(colors: [
+//                                        Color(red: 77 / 255, green: 128 / 255, blue: 118 / 255),
+//                                        Color(red: 94 / 255, green: 151 / 255, blue: 136 / 255),
+//                                        Color(red: 112 / 255, green: 175 / 255, blue: 153 / 255),
+//                                        Color(red: 132 / 255, green: 199 / 255, blue: 170 / 255),
+//                                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
+//                    ]), startPoint: .top, endPoint: .bottom)
+//                                    .edgesIgnoringSafeArea(.all)
+                    Color(red: 1 / 255, green: 10 / 255, blue: 65 / 255)
+                                       .edgesIgnoringSafeArea(.all)
 
                     // Case principale blanche englobant tous les éléments
                     ScrollView {
-                        VStack(spacing: 10) {
+                        Image("logo_ios")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 200, height: 200) // Taille de l'image
+                        .clipShape(Circle()) // Cela rendra l'image ronde
+                        
+                        .padding(.top)
+                        VStack(spacing: 0) {
+                            
                             if !isWinnerChosen {
-                                TextField("Nom joueur 1", text: $nameJ1)
+                                TextField("Nom joueur 1", text: $nameJ1).accentColor(Color.white).foregroundColor(Color.white)
                                     .padding()
                                 Picker("Personnage Joueur 1", selection: $selectedCharacter1) {
                                     ForEach(characters, id: \.self) {
@@ -64,8 +74,9 @@ struct ContentView: View {
                                 }
                                 .padding()
 
-                                TextField("Nom joueur 2", text: $nameJ2)
+                                TextField("Nom joueur 2", text: $nameJ2).foregroundColor(Color.white)
                                     .padding()
+                                    
                                 Picker("Personnage Joueur 2", selection: $selectedCharacter2) {
                                     ForEach(characters, id: \.self) {
                                         Text($0)
@@ -74,7 +85,7 @@ struct ContentView: View {
                                 .padding()
 
                                 Toggle(isOn: $isBo3) {
-                                    Text(isBo3 ? "Bo3" : "Bo5")
+                                    Text(isBo3 ? "Bo3" : "Bo5").foregroundColor(Color.white)
                                 }
                                 .padding()
 
@@ -101,7 +112,7 @@ struct ContentView: View {
                         }
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.white)
+                        .background(Color(red: 1 / 255, green: 20 / 255, blue: 60 / 255))
                         .cornerRadius(10)
                         .padding(.horizontal, 10) // Réduit la largeur
                         .padding(.vertical, 10) // Augmente la longueur
@@ -109,7 +120,7 @@ struct ContentView: View {
                     }
                     .edgesIgnoringSafeArea(.bottom)
                 }
-                .navigationTitle("Création du set")
+                
             }
         }
     }

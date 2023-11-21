@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Match: Identifiable {
+struct Match: Identifiable, Equatable {
     let id = UUID()
     var playerName1: String
     var playerName2: String
