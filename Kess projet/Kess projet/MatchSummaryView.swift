@@ -6,11 +6,25 @@ struct MatchSummaryView: View {
     let characterName1: String
     let characterName2: String
     let matchFormat: String
+    var onSave: (Match) -> Void
     
     @State private var characterImage1: UIImage?
     @State private var characterImage2: UIImage?
+    
 
     var body: some View {
+//        ZStack {
+//                    // Fond dégradé
+//                    LinearGradient(gradient: Gradient(colors: [
+//                        Color(red: 77 / 255, green: 128 / 255, blue: 118 / 255),
+//                        Color(red: 94 / 255, green: 151 / 255, blue: 136 / 255),
+//                        Color(red: 112 / 255, green: 175 / 255, blue: 153 / 255),
+//                        Color(red: 132 / 255, green: 199 / 255, blue: 170 / 255),
+//                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
+//                    ]), startPoint: .bottom, endPoint: .top)
+//                    .edgesIgnoringSafeArea(.all)
+
+                    // Contenu de votre vue
         VStack {
             Text("")
                 .padding(.bottom, 20)
@@ -22,7 +36,7 @@ struct MatchSummaryView: View {
                                     Image(uiImage: image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 120, height: 120)
+                                        .frame(width: 110, height: 120)
                                         
                                 }
                                 Text(characterName1)
@@ -40,7 +54,7 @@ struct MatchSummaryView: View {
                                     Image(uiImage: image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 120, height: 120)
+                                        .frame(width: 110, height: 110)
                                         
                                 }
                                 Text(characterName2)
@@ -49,6 +63,13 @@ struct MatchSummaryView: View {
                         }
                         Spacer() 
                     }
+        
+        Button("Valider") {
+                        let newMatch = Match(playerName1: playerName1, playerName2: playerName2, characterName1: characterName1, characterName2: characterName2, matchFormat: matchFormat)
+                        onSave(newMatch)
+                    }
+//        }
+                    .padding()
                     .padding()
                     .onAppear {
                         
@@ -83,5 +104,6 @@ struct MatchSummaryView: View {
                         completion(nil)
                     }
                 }
+    
     
             }

@@ -12,7 +12,7 @@ struct Kess_projetApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                MainView()
             }
         }
     }

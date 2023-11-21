@@ -32,66 +32,92 @@ struct ContentView: View {
     @State private var selectedCharacter2 = ""
     @State private var isSummaryVisible = false
     @State private var matchSummary = ""
+    @Binding var matchData: [Match]
+    
+    
     
     
     
     var body: some View {
-        VStack {
-            if !isWinnerChosen {
-                TextField("Nom joueur 1",text: $nameJ1)
-                    .padding()
-                Picker("Personnage Joueur 1", selection: $selectedCharacter1) {
-                                        ForEach(characters, id: \.self) {
-                                            Text($0)
-                                        }
-                                    }
-                    .padding()
-                TextField("Nom joueur 2",text: $nameJ2)
-                    .padding()
-                Picker("Personnage Joueur 2", selection: $selectedCharacter2) {
-                                        ForEach(characters, id: \.self) {
-                                            Text($0)
-                                        }
-                                    }
-                
-                                        
-                    .padding()
-                
-                Toggle(isOn: $isBo3) {
-                    Text(isBo3 ? "Bo3" : "Bo5")
-                }
-                .padding()
-                
-                if !isSummaryVisible {
-                            Button(action: {
-                                // Bouton Resume
-                                let matchFormat = isBo3 ? "Bo3" : "Bo5"
-                                matchSummary = "\(nameJ1) jouera \(selectedCharacter1) contre \(nameJ2) qui jouera \(selectedCharacter2) en \(matchFormat)."
+            NavigationView {
+                ZStack {
+                    // Fond vert pour toute la vue
+                    LinearGradient(gradient: Gradient(colors: [
+                                        Color(red: 77 / 255, green: 128 / 255, blue: 118 / 255),
+                                        Color(red: 94 / 255, green: 151 / 255, blue: 136 / 255),
+                                        Color(red: 112 / 255, green: 175 / 255, blue: 153 / 255),
+                                        Color(red: 132 / 255, green: 199 / 255, blue: 170 / 255),
+                                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
+                    ]), startPoint: .top, endPoint: .bottom)
+                                    .edgesIgnoringSafeArea(.all)
 
-                                
-                                isSummaryVisible = true
-                            }) {
-                                Text("Résumé du Match")
+                    // Case principale blanche englobant tous les éléments
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            if !isWinnerChosen {
+                                TextField("Nom joueur 1", text: $nameJ1)
+                                    .padding()
+                                Picker("Personnage Joueur 1", selection: $selectedCharacter1) {
+                                    ForEach(characters, id: \.self) {
+                                        Text($0)
+                                    }
+                                }
+                                .padding()
+
+                                TextField("Nom joueur 2", text: $nameJ2)
+                                    .padding()
+                                Picker("Personnage Joueur 2", selection: $selectedCharacter2) {
+                                    ForEach(characters, id: \.self) {
+                                        Text($0)
+                                    }
+                                }
+                                .padding()
+
+                                Toggle(isOn: $isBo3) {
+                                    Text(isBo3 ? "Bo3" : "Bo5")
+                                }
+                                .padding()
+
+                                if !isSummaryVisible {
+                                    Button(action: {
+                                        let matchFormat = isBo3 ? "Bo3" : "Bo5"
+                                        matchSummary = "\(nameJ1) jouera \(selectedCharacter1) contre \(nameJ2) qui jouera \(selectedCharacter2) en \(matchFormat)."
+                                        isSummaryVisible = true
+                                    }) {
+                                        Text("Résumé du Match")
+                                    }
+                                    .padding()
+                                }
                             }
-                            .padding()
-                        }
 
-                        // Navigation
-                        if isSummaryVisible {
-                            NavigationLink("", destination: MatchSummaryView(playerName1: nameJ1, playerName2: nameJ2, characterName1: selectedCharacter1, characterName2: selectedCharacter2, matchFormat: isBo3 ? "Bo3" : "Bo5"), isActive: $isSummaryVisible)
-                                .opacity(0)
-                                .frame(width: 0, height: 0)
+                            if isSummaryVisible {
+                                NavigationLink(destination: MatchSummaryView(playerName1: nameJ1, playerName2: nameJ2, characterName1: selectedCharacter1, characterName2: selectedCharacter2, matchFormat: isBo3 ? "Bo3" : "Bo5") { match in
+                                                        self.matchData.append(match) // Ajoute le match à matchData
+                                                        self.isSummaryVisible = false // Ferme MatchSummaryView après l'enregistrement
+                                                    }, isActive: $isSummaryVisible) {
+                                                        EmptyView()
+                                                    }
+                            }
                         }
+                        .padding()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal, 10) // Réduit la largeur
+                        .padding(.vertical, 10) // Augmente la longueur
+                        
                     }
-            
-                
+                    .edgesIgnoringSafeArea(.bottom)
+                }
+                .navigationTitle("Création du set")
+            }
         }
-        .navigationTitle("Création du set")
     }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+
+
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView(matchData: .constant([]))
+        }
     }
