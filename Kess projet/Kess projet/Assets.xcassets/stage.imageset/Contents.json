@@ -1,8 +1,22 @@
 {
   "images" : [
     {
-      "filename" : "stage.svg",
+      "filename" : "stage.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 128,
+          "left" : 29,
+          "right" : 110,
+          "top" : 127
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "1x"
     },
     {
@@ -17,5 +31,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

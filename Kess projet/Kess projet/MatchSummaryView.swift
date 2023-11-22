@@ -10,102 +10,99 @@ struct MatchSummaryView: View {
     
     @State private var characterImage1: UIImage?
     @State private var characterImage2: UIImage?
-    
 
     var body: some View {
-//        ZStack {
-//                    // Fond dégradé
-//                    LinearGradient(gradient: Gradient(colors: [
-//                        Color(red: 77 / 255, green: 128 / 255, blue: 118 / 255),
-//                        Color(red: 94 / 255, green: 151 / 255, blue: 136 / 255),
-//                        Color(red: 112 / 255, green: 175 / 255, blue: 153 / 255),
-//                        Color(red: 132 / 255, green: 199 / 255, blue: 170 / 255),
-//                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
-//                    ]), startPoint: .bottom, endPoint: .top)
-//                    .edgesIgnoringSafeArea(.all)
+        ZStack {
+            Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
+                .edgesIgnoringSafeArea(.all)
 
-                    // Contenu de votre vue
-        VStack {
-            Text("")
-                .padding(.bottom, 20)
-            HStack {
-                            VStack {
-                                Text(playerName1)
-                                    .font(.headline)
-                                if let image = characterImage1 {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 110, height: 120)
-                                        
+            VStack {
+                Spacer()
+                    .frame(height: 100)
+
+                HStack {
+                    VStack {
+                        Text(playerName1)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        if let image = characterImage1 {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 110, height: 120)
+                        }
+                        Text(characterName1)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+
+                    Text(matchFormat)
+                        .font(.headline)
+                        .padding()
+                        .foregroundColor(.white)
+
+                    VStack {
+                        Text(playerName2)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        if let image = characterImage2 {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 110, height: 110)
+                        }
+                        Text(characterName2)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                }
+
+                Spacer()
+
+                Button(action: {
+                                    let newMatch = Match(playerName1: playerName1, playerName2: playerName2, characterName1: characterName1, characterName2: characterName2, isBo3: matchFormat == "Bo3")
+                                    onSave(newMatch)
+                                }) {
+                                    Text("Valider")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(maxWidth: 100)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
                                 }
-                                Text(characterName1)
-                            }
-                            .padding()
-
-                            Text(matchFormat)
-                                .font(.headline)
                                 .padding()
-
-                            VStack {
-                                Text(playerName2)
-                                    .font(.headline)
-                                if let image = characterImage2 {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 110, height: 110)
-                                        
-                                }
-                                Text(characterName2)
-                            }
-                            .padding()
-                        }
-                        Spacer() 
-                    }
-        
-        Button("Valider") {
-                        let newMatch = Match(playerName1: playerName1, playerName2: playerName2, characterName1: characterName1, characterName2: characterName2, isBo3: matchFormat == "Bo3")
-                        onSave(newMatch)
-                    }
-//        }
-                    .padding()
-                    .padding()
-                    .onAppear {
-                        
-                        loadImage(from: formattedCharacterName(characterName1)) { image in
-                            characterImage1 = image
-                        }
-                        
-                        loadImage(from: formattedCharacterName(characterName2)) { image in
-                            characterImage2 = image
-                        }
-                    }
-                    .navigationTitle("Résumé du Match")
-                }
-                
-                // Formate le nom du personnage pour correspondre à l'URL de l'image
-                func formattedCharacterName(_ characterName: String) -> String {
-                    let formattedName = characterName.lowercased().replacingOccurrences(of: " ", with: "_")
-                    return "https://www.smashbros.com/assets_v2/img/fighter/pict/\(formattedName).png"
-                
-//
-                }
-                
-                // Charge l'image à partir de l'URL
-                func loadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
-                    if let url = URL(string: url) {
-                        URLSession.shared.dataTask(with: url) { data, response, error in
-                            if let data = data, let image = UIImage(data: data) {
-                                completion(image)
-                            } else {
-                                completion(nil)
-                            }
-                        }.resume()
-                    } else {
-                        completion(nil)
-                    }
-                }
-    
-    
             }
+        }
+        .onAppear {
+            loadImage(from: formattedCharacterName(characterName1)) { image in
+                characterImage1 = image
+            }
+            loadImage(from: formattedCharacterName(characterName2)) { image in
+                characterImage2 = image
+            }
+        }
+        .navigationTitle("Résumé du Match")
+        .foregroundColor(.white)
+    }
+
+    func formattedCharacterName(_ characterName: String) -> String {
+        let formattedName = characterName.lowercased().replacingOccurrences(of: " ", with: "_")
+        return "https://www.smashbros.com/assets_v2/img/fighter/pict/\(formattedName).png"
+    }
+
+    func loadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
+        if let url = URL(string: url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        completion(image)
+                    }
+                } else {
+                    completion(nil)
+                }
+            }.resume()
+        } else {
+            completion(nil)
+        }
+    }
+}

@@ -8,7 +8,9 @@ struct MatchEditView: View {
     var onSave: () -> Void
 
     var body: some View {
+        
         NavigationView {
+            
             Form {
                 Section(header: Text("Informations des Joueurs")) {
                     TextField("Nom joueur 1", text: $match.playerName1)
@@ -16,13 +18,13 @@ struct MatchEditView: View {
                 }
 
                 Section(header: Text("Sélection des Personnages")) {
-                    Picker("Personnage Joueur 1", selection: $match.characterName1) {
+                    Picker("Personnage \(match.playerName1)", selection: $match.characterName1) {
                         ForEach(characters, id: \.self) { character in
                             Text(character).tag(character)
                         }
                     }
 
-                    Picker("Personnage Joueur 2", selection: $match.characterName2) {
+                    Picker("Personnage \(match.playerName2)", selection: $match.characterName2) {
                         ForEach(characters, id: \.self) { character in
                             Text(character).tag(character)
                         }

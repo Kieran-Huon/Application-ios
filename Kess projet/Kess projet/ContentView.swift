@@ -111,6 +111,11 @@ struct ContentView: View {
                                         isSummaryVisible = true
                                     }) {
                                         Text("Résumé du Match")
+                                            .foregroundColor(.white)
+                                            .padding()
+                                            .frame(maxWidth: 200)
+                                            .background(Color.blue)
+                                            .cornerRadius(10)
                                     }
                                     .padding()
                                 }

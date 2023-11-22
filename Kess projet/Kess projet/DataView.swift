@@ -24,10 +24,11 @@ struct DataReviewView: View {
         
         var body: some View {
             ZStack {
-                Color(red: 1 / 255, green: 10 / 255, blue: 65 / 255)
-                    .edgesIgnoringSafeArea(.all)
+                Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
+                                   .edgesIgnoringSafeArea(.all)
                     
                 List {
+                    
                     ForEach(matchData) { match in
                         HStack {
                             VStack(alignment: .leading) {
@@ -68,6 +69,8 @@ struct DataReviewView: View {
                                                 }
                                             }
                                         }
+                
+                        
                 .sheet(isPresented: $showEditView) {
                     // Création d'un Binding<Match> à partir de editingMatch
                     let matchBinding = Binding<Match>(
