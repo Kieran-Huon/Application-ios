@@ -18,6 +18,7 @@
 		0CBEF88A2B0B8CD100D20179 /* Kess_projetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF8892B0B8CD100D20179 /* Kess_projetTests.swift */; };
 		0CBEF8942B0B8CD100D20179 /* Kess_projetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF8932B0B8CD100D20179 /* Kess_projetUITests.swift */; };
 		0CBEF8962B0B8CD100D20179 /* Kess_projetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF8952B0B8CD100D20179 /* Kess_projetUITestsLaunchTests.swift */; };
+		0CE0B0632B0DFD90000C2715 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE0B0622B0DFD90000C2715 /* Match.swift */; };
 		0CFC9D7C2B0BA49300BF128E /* MatchSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC9D7B2B0BA49300BF128E /* MatchSummaryView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		0CBEF88F2B0B8CD100D20179 /* Kess projetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kess projetUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBEF8932B0B8CD100D20179 /* Kess_projetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kess_projetUITests.swift; sourceTree = "<group>"; };
 		0CBEF8952B0B8CD100D20179 /* Kess_projetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kess_projetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0CE0B0622B0DFD90000C2715 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		0CFC9D7B2B0BA49300BF128E /* MatchSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 			children = (
 				0CBEF8782B0B8CCB00D20179 /* Kess_projetApp.swift */,
 				0C71CE992B0CBD7300EA5192 /* MainView.swift */,
+				0CE0B0622B0DFD90000C2715 /* Match.swift */,
 				0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */,
 				0C71CE972B0CBAF300EA5192 /* Models.swift */,
 				0C1739882B0BB7A7009E5891 /* DataView.swift */,
@@ -275,6 +278,7 @@
 				0CBEF87B2B0B8CCB00D20179 /* ContentView.swift in Sources */,
 				0C71CE9A2B0CBD7300EA5192 /* MainView.swift in Sources */,
 				0CA05D1B2B0D048A00967D91 /* MatchEditView.swift in Sources */,
+				0CE0B0632B0DFD90000C2715 /* Match.swift in Sources */,
 				0CBEF8792B0B8CCB00D20179 /* Kess_projetApp.swift in Sources */,
 				0C1739892B0BB7A7009E5891 /* DataView.swift in Sources */,
 				0CFC9D7C2B0BA49300BF128E /* MatchSummaryView.swift in Sources */,

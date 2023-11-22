@@ -65,7 +65,7 @@ struct MatchSummaryView: View {
                     }
         
         Button("Valider") {
-                        let newMatch = Match(playerName1: playerName1, playerName2: playerName2, characterName1: characterName1, characterName2: characterName2, matchFormat: matchFormat)
+                        let newMatch = Match(playerName1: playerName1, playerName2: playerName2, characterName1: characterName1, characterName2: characterName2, isBo3: matchFormat == "Bo3")
                         onSave(newMatch)
                     }
 //        }
@@ -87,7 +87,9 @@ struct MatchSummaryView: View {
                 // Formate le nom du personnage pour correspondre à l'URL de l'image
                 func formattedCharacterName(_ characterName: String) -> String {
                     let formattedName = characterName.lowercased().replacingOccurrences(of: " ", with: "_")
-                    return "https://www.smashbros.com/assets_v2/img/fighter/\(formattedName)/ss_4.jpg"
+                    return "https://www.smashbros.com/assets_v2/img/fighter/pict/\(formattedName).png"
+                
+//
                 }
                 
                 // Charge l'image à partir de l'URL

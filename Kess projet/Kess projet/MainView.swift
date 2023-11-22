@@ -1,16 +1,7 @@
-//
-//  MainView.swift
-//  Kess projet
-//
-//  Created by HUON Kieran on 21/11/2023.
-//
-
-// MainView.swift
-
 import SwiftUI
 
 struct MainView: View {
-    @State private var matchData: [Match] = [] // Gestion des données de match
+    @State private var matchData: [Match] = []
 
     var body: some View {
         TabView {
@@ -32,4 +23,3 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
-

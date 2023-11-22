@@ -33,6 +33,7 @@ struct ContentView: View {
     @State private var isSummaryVisible = false
     @State private var matchSummary = ""
     @Binding var matchData: [Match]
+    @State private var textInput: String = ""
     
     
     
@@ -50,7 +51,7 @@ struct ContentView: View {
 //                                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
 //                    ]), startPoint: .top, endPoint: .bottom)
 //                                    .edgesIgnoringSafeArea(.all)
-                    Color(red: 1 / 255, green: 10 / 255, blue: 65 / 255)
+                    Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
                                        .edgesIgnoringSafeArea(.all)
 
                     // Case principale blanche englobant tous les éléments
@@ -65,7 +66,14 @@ struct ContentView: View {
                         VStack(spacing: 0) {
                             
                             if !isWinnerChosen {
-                                TextField("Nom joueur 1", text: $nameJ1).accentColor(Color.white).foregroundColor(Color.white)
+                                TextField("",
+                                                  text: $nameJ1,
+                                                  prompt: Text("Nom joueur 1")
+                                                        .foregroundColor(Color(red: 184 / 255, green: 184 / 255, blue: 184 / 255))
+                                        )
+//                                TextField("Nom joueur 1", text: $nameJ1)
+                                    .accentColor(Color.white)
+                                    .foregroundColor(Color.white)
                                     .padding()
                                 Picker("Personnage Joueur 1", selection: $selectedCharacter1) {
                                     ForEach(characters, id: \.self) {
@@ -73,8 +81,15 @@ struct ContentView: View {
                                     }
                                 }
                                 .padding()
-
-                                TextField("Nom joueur 2", text: $nameJ2).foregroundColor(Color.white)
+                                
+                                TextField("",
+                                                  text: $nameJ2,
+                                                  prompt: Text("Nom joueur 2")
+                                                        .foregroundColor(Color(red: 184 / 255, green: 184 / 255, blue: 184 / 255))
+                                        )
+//                                TextField("Nom joueur 2", text: $nameJ2)
+                                    .accentColor(Color.white)
+                                    .foregroundColor(Color.white)
                                     .padding()
                                     
                                 Picker("Personnage Joueur 2", selection: $selectedCharacter2) {
