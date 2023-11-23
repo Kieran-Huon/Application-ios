@@ -55,6 +55,7 @@ struct PexelsImageView: View {
             }
             .navigationBarTitle("Pexels Images")
         }
+        .background(Color.black.opacity(0.5))
     }
 
 
