@@ -41,7 +41,9 @@ struct MatchEditView: View {
                     Button("Sauvegarder les changements", action: onSave)
                 }
             }
+            .environment(\.colorScheme, .dark)
             .navigationBarTitle("Modifier le Match", displayMode: .inline)
+            
         }
     }
 }

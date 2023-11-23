@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		0C1739892B0BB7A7009E5891 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1739882B0BB7A7009E5891 /* DataView.swift */; };
 		0C19F9502B0E45BC00011DA8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C19F94F2B0E45BC00011DA8 /* MapView.swift */; };
-		0C19F9522B0E5B6A00011DA8 /* CalendarApiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C19F9512B0E5B6A00011DA8 /* CalendarApiView.swift */; };
 		0C71CE982B0CBAF300EA5192 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71CE972B0CBAF300EA5192 /* Models.swift */; };
 		0C71CE9A2B0CBD7300EA5192 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71CE992B0CBD7300EA5192 /* MainView.swift */; };
+		0C7E8B722B0FA4600096A7F1 /* PexelApiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E8B712B0FA4600096A7F1 /* PexelApiView.swift */; };
 		0CA05D1B2B0D048A00967D91 /* MatchEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */; };
 		0CBEF8792B0B8CCB00D20179 /* Kess_projetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF8782B0B8CCB00D20179 /* Kess_projetApp.swift */; };
 		0CBEF87B2B0B8CCB00D20179 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBEF87A2B0B8CCB00D20179 /* ContentView.swift */; };
@@ -44,9 +44,9 @@
 /* Begin PBXFileReference section */
 		0C1739882B0BB7A7009E5891 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		0C19F94F2B0E45BC00011DA8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		0C19F9512B0E5B6A00011DA8 /* CalendarApiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarApiView.swift; sourceTree = "<group>"; };
 		0C71CE972B0CBAF300EA5192 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0C71CE992B0CBD7300EA5192 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0C7E8B712B0FA4600096A7F1 /* PexelApiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelApiView.swift; sourceTree = "<group>"; };
 		0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEditView.swift; sourceTree = "<group>"; };
 		0CBEF8752B0B8CCB00D20179 /* Kess projet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kess projet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBEF8782B0B8CCB00D20179 /* Kess_projetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kess_projetApp.swift; sourceTree = "<group>"; };
@@ -115,9 +115,9 @@
 				0C19F94F2B0E45BC00011DA8 /* MapView.swift */,
 				0CE0B0622B0DFD90000C2715 /* Match.swift */,
 				0CA05D1A2B0D048A00967D91 /* MatchEditView.swift */,
-				0C19F9512B0E5B6A00011DA8 /* CalendarApiView.swift */,
 				0C71CE972B0CBAF300EA5192 /* Models.swift */,
 				0C1739882B0BB7A7009E5891 /* DataView.swift */,
+				0C7E8B712B0FA4600096A7F1 /* PexelApiView.swift */,
 				0CFC9D7B2B0BA49300BF128E /* MatchSummaryView.swift */,
 				0CBEF87A2B0B8CCB00D20179 /* ContentView.swift */,
 				0CBEF87C2B0B8CD100D20179 /* Assets.xcassets */,
@@ -281,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C7E8B722B0FA4600096A7F1 /* PexelApiView.swift in Sources */,
 				0CBEF87B2B0B8CCB00D20179 /* ContentView.swift in Sources */,
 				0C71CE9A2B0CBD7300EA5192 /* MainView.swift in Sources */,
 				0CA05D1B2B0D048A00967D91 /* MatchEditView.swift in Sources */,
@@ -290,7 +291,6 @@
 				0CFC9D7C2B0BA49300BF128E /* MatchSummaryView.swift in Sources */,
 				0C19F9502B0E45BC00011DA8 /* MapView.swift in Sources */,
 				0C71CE982B0CBAF300EA5192 /* Models.swift in Sources */,
-				0C19F9522B0E5B6A00011DA8 /* CalendarApiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

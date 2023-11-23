@@ -13,8 +13,8 @@ struct MatchSummaryView: View {
 
     var body: some View {
         ZStack {
-            Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
-                .edgesIgnoringSafeArea(.all)
+//            Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
+//                .edgesIgnoringSafeArea(.all)
 
             VStack {
                 Spacer()
@@ -81,6 +81,7 @@ struct MatchSummaryView: View {
                 characterImage2 = image
             }
         }
+        .environment(\.colorScheme, .dark)
         .navigationTitle("Résumé du Match")
         .foregroundColor(.white)
     }

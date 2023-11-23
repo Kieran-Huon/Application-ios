@@ -51,7 +51,7 @@ struct ContentView: View {
 //                                        Color(red: 154 / 255, green: 223 / 255, blue: 186 / 255)
 //                    ]), startPoint: .top, endPoint: .bottom)
 //                                    .edgesIgnoringSafeArea(.all)
-                    Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
+                    Color(red: 0 / 255, green: 0 / 255, blue: 0 / 255)
                                        .edgesIgnoringSafeArea(.all)
 
                     // Case principale blanche englobant tous les éléments
@@ -132,7 +132,7 @@ struct ContentView: View {
                         }
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(red: 1 / 255, green: 20 / 255, blue: 60 / 255))
+                        .background(Color(red: 28 / 255, green: 28 / 255, blue: 30 / 255))
                         .cornerRadius(10)
                         .padding(.horizontal, 10) // Réduit la largeur
                         .padding(.vertical, 10) // Augmente la longueur

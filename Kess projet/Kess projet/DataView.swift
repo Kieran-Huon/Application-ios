@@ -24,8 +24,10 @@ struct DataReviewView: View {
         
         var body: some View {
             ZStack {
-                Color(red: 2 / 255, green: 7 / 255, blue: 51 / 255)
+                Color(red: 0 / 255, green: 0 / 255, blue: 0 / 255)
                                    .edgesIgnoringSafeArea(.all)
+                                   .environment(\.colorScheme, .dark)
+                
                     
                 List {
                     
@@ -68,7 +70,7 @@ struct DataReviewView: View {
                                                     }
                                                 }
                                             }
-                                        }
+                                        }.environment(\.colorScheme, .dark)
                 
                         
                 .sheet(isPresented: $showEditView) {
